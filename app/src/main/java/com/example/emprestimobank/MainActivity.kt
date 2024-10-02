@@ -38,8 +38,9 @@ class MainActivity : AppCompatActivity() {
             installments == 1 -> 0.15
             installments in 2..4 -> 0.20
             installments in 5..7 -> 0.25
-            else -> 0.30 * installments
-        }esle
+            installments >= 8 -> 0.30 * installments
+            else -> 0.0
+        }
         return principal + (principal * interestRate)
     }
 }
