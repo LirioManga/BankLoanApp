@@ -5,30 +5,39 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/myImageView"
+        android:layout_width="0dp"
+        android:layout_height="179dp"
+        android:src="@drawable/banco"
+
+        app:layout_constraintHorizontal_bias="0.647"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="15dp" />
 
     <EditText
         android:id="@+id/principalInput"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="244dp"
-        android:hint="Valor Principal (Capital)"
+        android:layout_marginTop="256dp"
+        android:hint="Insira valor emprestimo"
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/installmentsInput"
+    <Spinner
+        android:id="@+id/installmentsSpinner"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="36dp"
-        android:hint="Número de Prestações"
-        android:inputType="number"
+        android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.125"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/principalInput" />
 
@@ -40,41 +49,32 @@
         android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/installmentsInput">
+        app:layout_constraintTop_toBottomOf="@+id/installmentsSpinner">
 
-        <RadioButton
-            android:id="@+id/radioFixedInstallments"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Parcelas Fixas" />
+<!--        <RadioButton-->
+<!--            android:id="@+id/radioFixedInstallments"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Parcelas Fixas" />-->
 
-        <RadioButton
-            android:id="@+id/radioSinglePayment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Prestação Única" />
+<!--        <RadioButton-->
+<!--            android:id="@+id/radioSinglePayment"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Prestação Única" />-->
 
     </RadioGroup>
 
     <Button
         android:id="@+id/calculateButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="184dp"
+        android:layout_height="45dp"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:text="Calcular"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.548"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/amortizationType" />
 
-    <ImageView
-        android:id="@+id/myImageView"
-        android:layout_width="430dp"
-        android:layout_height="200dp"
-        android:src="@drawable/banco"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="45dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,8 +2,10 @@ package com.example.emprestimobank
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -15,13 +17,23 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val installmentsSpinner: Spinner = findViewById(R.id.installmentsSpinner)
+        ArrayAdapter.createFromResource(
+            this,
+            R.array.installments_array,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            installmentsSpinner.adapter = adapter
+        }
+
         val calculateButton: Button = findViewById(R.id.calculateButton)
         calculateButton.setOnClickListener {
-
             val principal = findViewById<EditText>(R.id.principalInput).text.toString().toDoubleOrNull()
-            val installments = findViewById<EditText>(R.id.installmentsInput).text.toString().toIntOrNull()
+            val installments = installmentsSpinner.selectedItem.toString().toIntOrNull()
+
             if (principal == null || installments == null) {
-                Toast.makeText(this, "Por favor insira todos os campos corretamente", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Por favor insira todos os campos correctamente", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 

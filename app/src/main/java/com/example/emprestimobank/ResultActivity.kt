@@ -13,7 +13,7 @@ class ResultActivity : AppCompatActivity() {
         setContentView(R.layout.activity_result)
 
         val totalPayment = intent.getDoubleExtra("totalPayment", 0.0)
-        findViewById<TextView>(R.id.resultTextView).text = String.format("Valor total a pagar: %.2f", totalPayment)
+        findViewById<TextView>(R.id.resultTextView).text = String.format("Valor  a pagar: %.2f ", totalPayment, "Mt")
         Toast.makeText(this, "Total a pagar: %.2f".format(totalPayment), Toast.LENGTH_LONG).show()
 
         val backButton: Button = findViewById(R.id.backButton)
